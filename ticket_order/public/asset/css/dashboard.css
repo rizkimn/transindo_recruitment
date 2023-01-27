@@ -1,0 +1,10 @@
+div.modal.fade,
+div.modal.fade::before,
+div.modal.fade::after,
+div.modal.fade,
+div.modal.fade::before,
+div.modal.fade::after {
+    width: 100%;
+    background: #848484;
+    z-index: 9999;
+}

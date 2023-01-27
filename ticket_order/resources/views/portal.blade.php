@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     {{-- CSS --}}
-    <link rel="stylesheet" href="{{asset('asset/css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('asset/css/portal.css')}}">
     {{-- Custom Slider Style --}}
     <link rel="stylesheet" href="{{asset('asset/css/rmnslider.css')}}">
     {{-- WOW JS Style --}}
@@ -23,7 +23,7 @@
     <header>
         <span class="logo">AgenX</span>
         <button class="login-btn">
-            <a href="#">Login</a>
+            <a href="/login">Login</a>
         </button>
     </header>
     <section class="portal rmn-slider">

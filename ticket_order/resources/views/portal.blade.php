@@ -54,6 +54,34 @@
         </div>
     </section>
 
+    <div class="modal">
+        <div class="modal-overlay">
+            <div class="form-group wow fadeInUp">
+                <form action="">
+                    <h2>Order Ticket!</h2>
+                    <ul>
+                        <li>
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Bill Gates">
+                        </li>
+                        <li>
+                            <label for="phone">Phone</label>
+                            <input type="phone" id="phone" name="phone" placeholder="+62x-xxx-xxx-xxxx">
+                        </li>
+                        <li>
+                            <label for="address">Address</label>
+                            <textarea name="address" id="addresss" cols="30" rows="10"></textarea>
+                        </li>
+                    </ul>
+                    <div class="btn">
+                        <button class="order-btn" type="submit" name="submit">Order</button>
+                        <button class="back-btn" type="button">Back</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     {{-- Wow JS --}}
     <script src="{{asset('./asset/library/WOW/dist/wow.min.js')}}"></script>
     <script>
@@ -70,6 +98,20 @@
         let cardSlides = document.querySelectorAll('.content .images .slides .slide');
         let cardSlider = new RMNSlider(cardSlides);
         setInterval(()=>{cardSlider.next()}, 5000)
+    </script>
+
+    {{-- Modal Trigger --}}
+    <script>
+        let trigger = document.querySelector('button.form-trigger');
+        let back = document.querySelector('button.back-btn');
+        let modal = document.querySelector('div.modal');
+        trigger.addEventListener('click', (e) => {
+            modal.classList.add('active');
+        });
+
+        back.addEventListener('click', (e) => {
+            modal.classList.remove('active');
+        })
     </script>
 </body>
 </html>

@@ -20,12 +20,14 @@ Route::get('/', function () {
 });
 
 
-Route::get('/login', [StaffController::class, 'login'])->name('login')->middleware('guest');
+Route::get('/login',  [StaffController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [StaffController::class, 'auth']);
 Route::get('/logout', [StaffController::class, 'logout'])->middleware('auth');
 
-Route::get('/admin', function () {
-    return view('staff.dashboard');
-})->middleware('auth');
+Route::get('/admin',   [StaffController::class, 'admin'])->middleware('auth');
+Route::get('/checkin', [StaffController::class, 'admin'])->middleware('auth');
+Route::get('/laporan', [StaffController::class, 'admin'])->middleware('auth');
 
-Route::post('/order/new', [OrderController::class, 'create']);
+Route::post('/order/new',           [OrderController::class, 'create']);
+Route::put('/order/edit/{id}',      [OrderController::class, 'update']);
+Route::delete('/order/delete/{id}', [OrderController::class, 'delete']);

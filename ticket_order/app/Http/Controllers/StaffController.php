@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Order;
 
 class StaffController extends Controller
 {
@@ -34,5 +35,10 @@ class StaffController extends Controller
         $r->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    function admin() {
+        $orders = Order::all();
+        return view('staff.dashboard', ['orders'=>$orders]);
     }
 }

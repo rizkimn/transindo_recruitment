@@ -27,4 +27,22 @@ class OrderController extends Controller
 
         return redirect('/')->with('new_order', 'Pesanan Berhasil');
     }
+
+    function update(Request $r, $id) {
+        $validated = $r->validate([
+            'name'    => ['required'],
+            'phone'   => ['required'],
+            'address' => ['required'],
+        ]);
+
+        Order::where('ticket_id', $id)
+                ->update($validated);
+
+        return redirect('/admin')->with('sukses', 'Data Berhasil Diubah.');
+    }
+
+    function delete($id) {
+        Order::where('ticket_id', $id)->delete();
+        return redirect('/admin')->with('sukses', 'Data Berhasil Dihapus.');
+    }
 }

@@ -1,10 +1,127 @@
-div.modal.fade,
-div.modal.fade::before,
-div.modal.fade::after,
-div.modal.fade,
-div.modal.fade::before,
-div.modal.fade::after {
-    width: 100%;
-    background: #848484;
+tr td {
+    height: 50px;
+}
+
+td .action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    outline: none;
+}
+
+td .action-btn a,
+td .action-btn button {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 21px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 16px;
+}
+
+.edit-btn {
+    background-color: #0cf30c;
+    margin-right: 10px;
+}
+
+.delete-btn {
+    background-color: #da2929;
+}
+
+
+.editorder-modal {
+    display: none;
+    position: fixed;
     z-index: 9999;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    color: #000000;
+}
+
+.editorder-modal.active {
+    display: block;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000da;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editorder-modal .form-group {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 35px 80px;
+    max-height: 80%;
+    overflow: auto;
+    border-radius: 24px;
+}
+
+.editorder-modal form > * {
+    padding: 10px 0;
+}
+
+.editorder-modal .modal-overlay .form-input li {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    width: 24em;
+    padding: 3px 0;
+}
+
+.editorder-modal li input,
+.editorder-modal li textarea {
+    margin-top: 5px;
+    padding: 4px 6px;
+}
+
+.editorder-modal li span {
+    color: #da2929;
+}
+
+.editorder-modal .action-btn {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.editorder-modal .action-btn button {
+    margin-left: 10px;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 4px;
+}
+
+.editorder-modal .action-btn .order-btn {
+    background-color: #2547f4;
+    color: #ffffff;
+    border: none;
+    outline: none;
+}
+
+.alerts {
+    position: fixed;
+    z-index: 9999;
+    top: 10px; left: 0;
+    width: calc(100% - 20px);
+}
+
+.alert {
+    width: 100%;
+    margin: 5px 10px;
+    transition: .3s;
+    align-items: center;
+    display: flex;
 }

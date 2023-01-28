@@ -54,7 +54,10 @@ class OrderController extends Controller
                 return redirect()->back()->with('gagal', 'ID Tiket Sudah Check In, Gunakan Tiket Lain!');
             }
             $order->update(['ticket_status' => 'sudah']);
-            return redirect('/checkin')->with('sukses', 'Tiket Valid, Silahkan Masuk!');
+            return redirect('/checkin')->with([
+                                                'sukses'  => 'Tiket Valid, Silahkan Masuk!',
+                                                'pesanan' => $order->get()
+                                            ]);
         }
         return redirect()->back()->with('gagal', 'ID Tidak Valid, Silahkan Periksa Kembali!');
     }

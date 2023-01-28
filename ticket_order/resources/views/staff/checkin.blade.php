@@ -1,22 +1,7 @@
 @extends('layout.template')
 @section('title', 'Admin Dashboard Page')
 @section('custom-css')
-<style>
-    .alerts {
-        position: fixed;
-        z-index: 9999;
-        top: 10px; left: 0;
-        width: calc(100% - 20px);
-    }
-
-    .alert {
-        width: 100%;
-        margin: 5px 10px;
-        transition: .3s;
-        align-items: center;
-        display: flex;
-    }
-</style>
+<link rel="stylesheet" href="{{asset('/asset/css/checkin.css')}}">
 @endsection
 @section('body')
 <section class="school-list">
@@ -41,12 +26,36 @@
         <i class="bx bx-check-double" style="font-size: 20px; margin-right: 10px;"></i> <strong>Sukses!</strong>&ThinSpace; {{session('sukses')}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    @endisset
+    @endif
     @if(session('gagal'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <i class="bx bx-alarm-exclamation" style="font-size: 20px; margin-right: 10px;"></i> <strong>Gagal!</strong>&ThinSpace; {{session('gagal')}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    @endisset
+    @endif
 </div>
+
+@if(session('pesanan'))
+<div class="checkin-modal active">
+    <div class="modal-overlay">
+        <div class="modal-content wow fadeInUp">
+            <div class="modal-header"><h4>Biodata Pemesan</h4> <i class="close-btn bx bx-x"></i></div>
+            <div class="modal-body">
+                <ul>
+                    <li><i class="bx bx-user"></i><span>{{session('pesanan')[0]['name']}}</span></li>
+                    <li><i class="bx bx-phone"></i><span>{{session('pesanan')[0]['phone']}}</span></li>
+                    <li><i class="bx bx-home"></i><span>{{session('pesanan')[0]['address']}}</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+@endsection
+@section('custom-js')
+<script>
+    document.querySelector('.checkin-modal .close-btn').addEventListener('click', (e) => {
+        document.querySelector('.checkin-modal').classList.remove('active');
+    });
+</script>
 @endsection

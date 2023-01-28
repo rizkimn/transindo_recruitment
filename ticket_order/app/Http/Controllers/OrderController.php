@@ -48,10 +48,14 @@ class OrderController extends Controller
 
     function ticket_check(Request $r) {
         $order = Order::where('ticket_id', $r->ticket_id);
+
         if(isset($order->get()[0])) {
+            if($order->get()[0]->ticket_status == 'sudah') {
+                return redirect()->back()->with('gagal', 'ID Tiket Sudah Check In, Gunakan Tiket Lain!');
+            }
             $order->update(['ticket_status' => 'sudah']);
             return redirect('/checkin')->with('sukses', 'Tiket Valid, Silahkan Masuk!');
         }
-        return redirect()->back()->with('gagal', 'Tiket Tidak Valid, Silahkan Periksa Kembali!');
+        return redirect()->back()->with('gagal', 'ID Tidak Valid, Silahkan Periksa Kembali!');
     }
 }

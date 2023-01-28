@@ -44,7 +44,7 @@
     @endisset
     @if(session('gagal'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <i class="bx bx-check-double" style="font-size: 20px; margin-right: 10px;"></i> <strong>Gagal!</strong>&ThinSpace; {{session('gagal')}}
+        <i class="bx bx-alarm-exclamation" style="font-size: 20px; margin-right: 10px;"></i> <strong>Gagal!</strong>&ThinSpace; {{session('gagal')}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endisset

@@ -5,7 +5,7 @@
     <h2>Pesanan yang telah check-in</h2>
     <table class="table table-checked-orders">
         <thead>
-            <tr class="table-info">
+            <tr class="table-success">
                 <th scope="col">#</th>
                 <th scope="col">Ticket ID</th>
                 <th scope="col">Nama Pemesan</th>
@@ -30,7 +30,7 @@
     <h2>Pesanan yang belum check-in</h2>
     <table class="table table-unchecked-orders">
         <thead>
-            <tr class="table-info">
+            <tr class="table-danger">
                 <th scope="col">#</th>
                 <th scope="col">Ticket ID</th>
                 <th scope="col">Nama Pemesan</th>

@@ -25,8 +25,10 @@ Route::post('/login', [StaffController::class, 'auth']);
 Route::get('/logout', [StaffController::class, 'logout'])->middleware('auth');
 
 Route::get('/admin',   [StaffController::class, 'admin'])->middleware('auth');
-Route::get('/checkin', [StaffController::class, 'admin'])->middleware('auth');
-Route::get('/laporan', [StaffController::class, 'admin'])->middleware('auth');
+Route::get('/checkin', [StaffController::class, 'checkin'])->middleware('auth');
+Route::get('/laporan', [StaffController::class, 'laporan'])->middleware('auth');
+
+Route::post('/order/checkin', [OrderController::class, 'ticket_check'])->middleware('auth');
 
 Route::post('/order/new',           [OrderController::class, 'create']);
 Route::put('/order/edit/{id}',      [OrderController::class, 'update']);

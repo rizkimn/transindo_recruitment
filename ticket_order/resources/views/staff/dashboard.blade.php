@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{asset('asset/css/dashboard.css')}}">
 @endsection
 @section('body')
-<section class="school-list">
+<section class="orders-list">
     <h2>Daftar Pesanan</h2>
     <table class="table">
         <thead>
@@ -24,7 +24,7 @@
                 <td>{{$order->ticket_id}}</td>
                 <td>{{$order->name}}</td>
                 <td>{{$order->phone}}</td>
-                <td>{{$order->ticket_status}} Check In</td>
+                <td>{{$order->ticket_status}} check-in</td>
                 <td style="width: 10%">
                     <div class="action-btn">
                         <a href="--EDIT ORDER--" class="edit-btn"><i class="bx bx-edit"></i></a>

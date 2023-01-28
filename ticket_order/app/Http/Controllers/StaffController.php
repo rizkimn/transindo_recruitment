@@ -41,4 +41,18 @@ class StaffController extends Controller
         $orders = Order::all();
         return view('staff.dashboard', ['orders'=>$orders]);
     }
+
+    function checkin() {
+        return view('staff.checkin');
+    }
+
+    function laporan() {
+        $checkedOrders   = Order::where('ticket_status', 'sudah')->get();
+        $unCheckedOrders = Order::where('ticket_status', 'belum')->get();
+
+        return view('staff.laporan', [
+                                        'checkedOrders'   => $checkedOrders,
+                                        'uncheckedOrders' => $unCheckedOrders
+                                    ]);
+    }
 }

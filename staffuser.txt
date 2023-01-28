@@ -1,0 +1,4 @@
+user : admin
+pass : admin
+
+*Ket : User Staff management dilakukan manual lewat artisan tinker.

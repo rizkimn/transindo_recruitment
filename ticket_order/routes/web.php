@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('portal');
 });
 
+Route::get('/order/ticket/{id}', [OrderController::class, 'ticket_show']);
+
 
 Route::get('/login',  [StaffController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [StaffController::class, 'auth']);

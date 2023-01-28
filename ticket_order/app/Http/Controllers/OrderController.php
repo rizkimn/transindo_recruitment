@@ -25,7 +25,7 @@ class OrderController extends Controller
             'ticket_status' => 'belum'
         ]);
 
-        return redirect('/')->with('new_order', 'Pesanan Berhasil');
+        return redirect('/order/ticket/'.$ticket_id)->with('new_order', 'Pesanan Berhasil');
     }
 
     function update(Request $r, $id) {
@@ -60,5 +60,15 @@ class OrderController extends Controller
                                             ]);
         }
         return redirect()->back()->with('gagal', 'ID Tidak Valid, Silahkan Periksa Kembali!');
+    }
+
+    function ticket_show($id) {
+        $order = Order::where('ticket_id', $id);
+
+        if(isset($order->get()[0])) {
+            return view('ticket', ['ticket_id' => $id]);
+        }
+
+        return response('Ticket Not Found', 404);
     }
 }

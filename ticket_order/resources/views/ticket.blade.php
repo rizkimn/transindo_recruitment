@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Old+Standard+TT:wght@400;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('asset/css/ticket.css')}}">
+    {{-- Boxicon --}}
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Print Out Your Ticket</title>
     <style>
         .parent > div {
@@ -39,6 +41,6 @@
         </div>
     </div>
     <h2 class="print">Print Out Your Ticket Above !</h2>
-    <a href="/">Back to Portal</a>
+    <a href="/"><i class="bx bx-chevron-left"></i> Back to Portal</a>
 </body>
 </html>

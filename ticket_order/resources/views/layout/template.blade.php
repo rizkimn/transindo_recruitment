@@ -27,7 +27,7 @@
     <header class="header" id="header">
         <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
         <div class="d-flex">
-            <span style="margin-right: 20px">Hi, @auth {{Auth::user()->username}} @endauth @guest Staff @endguest</span>
+            <span style="margin-right: 20px">Hi, {{Auth::user()->username}} </span>
             <div class="header_img"> <img src="{{asset('img/anon-profilepic.jpg')}}" alt=""> </div>
         </div>
     </header>
@@ -38,18 +38,12 @@
                     <a href="/admin" class="nav_link {{ request()->is('admin') ? 'active' : ''}}"> <i class='bx bx-list-ul nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
                     <a href="/checkin" class="nav_link {{ request()->is('checkin') ? 'active' : ''}}"> <i class='bx bx-calendar-check nav_icon'></i> <span class="nav_name">Check In</span> </a>
                     <a href="/laporan" class="nav_link {{ request()->is('laporan') ? 'active' : ''}}"> <i class='bx bx-pie-chart-alt-2 nav_icon'></i> <span class="nav_name">Laporan</span> </a>
-                    @auth
-                    <a href="/sekolah" class="nav_link {{ request()->is('sekolah') || request()->is('sekolah/*') ? 'active' : ''}}"> <i class='bx bx-list-ul nav_icon'></i> <span class="nav_name">Daftar Sekolah</span> </a>
-                    <a href="/edituser" class="nav_link {{ request()->is('edituser') ? 'active' : ''}}"> <i class='bx bx-cog nav_icon'></i> <span class="nav_name">Edit User</span> </a>
-                    @endauth
                 </div>
             </div>
-            @guest
-            <a href="/" class="nav_link"> <i class='bx bx-arrow-back nav_icon'></i> <span class="nav_name">Back to Portal</span> </a>
-            @endguest
-            @auth
-            <a href="/logout" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Log Out</span> </a>
-            @endauth
+            <div>
+                <a href="/" class="nav_link"> <i class='bx bx-home nav_icon'></i> <span class="nav_name">Back to Portal</span> </a>
+                <a href="/logout" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Log Out</span> </a>
+            </div>
         </nav>
     </div>
     <!--Container Main start-->

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\StaffController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +19,13 @@ Route::get('/', function () {
     return view('portal');
 });
 
-Route::get('/login', function () {
-    return view('staff.login');
-});
+
+Route::get('/login', [StaffController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/login', [StaffController::class, 'auth']);
+Route::get('/logout', [StaffController::class, 'logout'])->middleware('auth');
 
 Route::get('/admin', function () {
     return view('staff.dashboard');
-});
+})->middleware('auth');
 
 Route::post('/order/new', [OrderController::class, 'create']);

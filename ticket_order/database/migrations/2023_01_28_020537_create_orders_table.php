@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
             $table->text('address');
-            $table->string('ticket_id');
+            $table->string('ticket_id')->unique();
             $table->string('ticket_status');
             $table->timestamps();
         });

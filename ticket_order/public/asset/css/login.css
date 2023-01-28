@@ -198,6 +198,17 @@
             animation-duration: 0.3s;
   }
 
+  .message {
+    color: red;
+    font-size: 14px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .message i {
+    margin-right: 5px;
+  }
+
   @-webkit-keyframes shake-shake {
     0% {
       transform: translateX(-3px);

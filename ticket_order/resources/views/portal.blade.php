@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="{{asset('asset/css/rmnslider.css')}}">
     {{-- WOW JS Style --}}
     <link rel="stylesheet" href="{{asset('asset/library/WOW/css/libs/animate.css')}}">
+    {{-- Boxicon --}}
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <title>AgenX Concert - Explore the Rythm, Enjoy the Melody, Follow the bass</title>
 </head>
@@ -23,7 +25,17 @@
     <header>
         <span class="logo">AgenX</span>
         <button class="login-btn">
-            <a href="/login">Login</a>
+            <a href=
+                    @auth "/admin" @endauth
+                    @guest "/login" @endguest
+            >
+                @auth
+                    Admin
+                @endauth
+                @guest
+                    Login
+                @endguest
+            </a>
         </button>
     </header>
     <section class="portal rmn-slider">
@@ -83,6 +95,34 @@
         </div>
     </div>
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $i => $error)
+            <li class="wow fadeInRight" data-wow-delay="0.{{$i}}s" data-wow-duration=".5">
+                <div class="message">
+                    <i class='bx bx-alarm-exclamation'></i> <p>{{$error}}</p>
+                </div>
+                <div class="btn alert-close"><i class="bx bx-x"></i></div>
+            </li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
+    @if (session('new_order'))
+    <div class="alert alert-success">
+        <ul>
+            <li class="wow fadeInRight" data-wow-delay="0.2s" data-wow-duration=".5">
+                <div class="message">
+                    <i class='bx bx-check-double'></i> <p>{{session('new_order')}}</p>
+                </div>
+                <div class="btn alert-close"><i class="bx bx-x"></i></div>
+            </li>
+        </ul>
+    </div>
+    @endif
+
     {{-- Wow JS --}}
     <script src="{{asset('./asset/library/WOW/dist/wow.min.js')}}"></script>
     <script>
@@ -113,6 +153,16 @@
         back.addEventListener('click', (e) => {
             modal.classList.remove('active');
         })
+    </script>
+
+    {{-- Alert Closing --}}
+    <script>
+        let alertsEl = document.querySelectorAll('.alert ul li');
+        alertsEl.forEach(alert => {
+            alert.querySelector('.btn.alert-close').addEventListener('click', (e) => {
+                alert.style.display = 'none';
+            })
+        });
     </script>
 </body>
 </html>

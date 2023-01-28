@@ -240,6 +240,57 @@ section.portal .content {
     outline: none;
 }
 
+.alert {
+    position: fixed;
+    z-index: 667;
+    top: 10px; right: 10px;
+}
+
+.alert ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.alert.alert-danger li {
+    background-color: #e51818d2;
+    color: #f6caca;
+}
+
+.alert.alert-success li {
+    background-color: #05adc3d2;
+    color: #f3f3ff;
+}
+
+.alert li {
+    list-style: none;
+    padding: 16px 24px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+}
+
+.alert li .message {
+    display: flex;
+    align-items: center;
+}
+
+.alert .message p {
+    margin: 0 10px;
+}
+
+.alert .btn.alert-close {
+    cursor: pointer;
+    font-size: 20px;
+    opacity: .3;
+    transition: .3s;
+}
+
+.alert .btn.alert-close:hover {
+    opacity: 1;
+}
+
 
 @keyframes cardImageAnimation1 {
     from {

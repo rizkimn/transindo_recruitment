@@ -51,6 +51,11 @@
                 </svg>
             </div>
         </div>
+        @if(session('failed'))
+        <span class="message">
+            <i class="bx bx-message-error"></i> {{session('failed')}}
+        </span>
+        @endif
         <div style="
             width: 100%;
             display: flex;
@@ -63,9 +68,4 @@
       </form>
     </div>
   </body>
-  <script>
-    @if (session('error'))
-        alert('Username atau Password Salah!');
-    @endif
-  </script>
 </html>

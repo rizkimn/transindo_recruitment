@@ -57,7 +57,8 @@
     <div class="modal">
         <div class="modal-overlay">
             <div class="form-group wow fadeInUp">
-                <form action="">
+                <form action="/order/new" method="POST">
+                    @csrf @method('POST')
                     <h2>Order Ticket!</h2>
                     <ul>
                         <li>

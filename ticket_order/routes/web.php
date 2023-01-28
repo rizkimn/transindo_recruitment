@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,5 @@ Route::get('/login', function () {
 Route::get('/admin', function () {
     return view('staff.dashboard');
 });
+
+Route::post('/order/new', [OrderController::class, 'create']);

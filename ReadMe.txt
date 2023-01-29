@@ -35,6 +35,12 @@ Tell Artisan to Serve It!
 Enjoy..
 
 =============================================================================
+Fix Logout Error
+
+comment the return of getRememberToken() function at:
+ticket_order/vendor/laravel/framework/src/Illuminate/Auth/GenericUser.php
+
+=============================================================================
 About Me:
   *can see in my linkedin page :D 'Dont forget to connect me in there'
 
